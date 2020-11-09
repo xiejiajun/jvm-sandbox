@@ -8,6 +8,7 @@ import static com.alibaba.jvm.sandbox.core.enhance.weaver.asm.AsmMethods.InnerHe
 import static com.alibaba.jvm.sandbox.core.util.SandboxReflectUtils.unCaughtGetClassDeclaredJavaMethod;
 
 /**
+ * TODO 这里定义类调用Spy中的具体方法的Method常量，在EventWeaver中进行ASM字节码织入时会用到
  * 常用的ASM method 集合
  * 省得我到处声明
  * Created by luanjia@taobao.com on 16/5/21.
