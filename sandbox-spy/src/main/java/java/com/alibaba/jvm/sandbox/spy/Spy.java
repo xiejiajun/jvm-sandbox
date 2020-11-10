@@ -5,6 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+ * TODO Spy是用于辅助ASM进行字节码修改的
  * 间谍类，藏匿在各个ClassLoader中
  * <p>
  * 从{@code 0.0.0.v}版本之后,因为要考虑能在alipay的CloudEngine环境中使用,这个环境只能向上查找java.开头的包路径.
@@ -40,7 +41,8 @@ public class Spy {
 
     /**
      * 初始化间谍
-     *
+     * TODO 最终会在JettyCoreServer的bind方法中通过SpyUtils进行初始化
+     *  单元测试是在JvmHelper的createJvm方法进行初始化
      * @param namespace  命名空间
      * @param spyHandler 间谍处理器
      * @since {@code sandbox-spy:1.3.0}
@@ -98,6 +100,7 @@ public class Spy {
         try {
             final SpyHandler spyHandler = namespaceSpyHandlerMap.get(namespace);
             if (null != spyHandler) {
+                // TODO 最终通过ASM织入Spy的这个方法后，方法执行前会调用EventListenerHandler.handleOnCallBefore
                 spyHandler.handleOnCallBefore(listenerId, lineNumber, owner, name, desc);
             }
         } catch (Throwable cause) {

@@ -326,6 +326,14 @@ public class EventWeaver extends ClassVisitor implements Opcodes, AsmTypes, AsmM
                 codeLockForTracing.code(opcode);
             }
 
+            /**
+             * TODO ASM修改方法，实现AOP
+             * @param opcode
+             * @param owner
+             * @param name
+             * @param desc
+             * @param itf
+             */
             @Override
             public void visitMethodInsn(final int opcode,
                                         final String owner,
@@ -341,6 +349,7 @@ public class EventWeaver extends ClassVisitor implements Opcodes, AsmTypes, AsmM
                 }
 
                 if (hasCallBefore) {
+                    // TODO ASM织入方法调用前的操作
                     // 方法调用前通知
                     codeLockForTracing.lock(new CodeLock.Block() {
                         @Override
