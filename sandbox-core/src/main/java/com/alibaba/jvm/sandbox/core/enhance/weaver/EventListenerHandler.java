@@ -316,6 +316,7 @@ public class EventListenerHandler implements SpyHandler {
 
         // 如果尚未注册,则直接返回,不做任何处理
         if (null == processor) {
+            // TODO 这个判断添加用于注册/卸载增强逻辑
             logger.debug("listener={} is not activated, ignore processing before-event.", listenerId);
             return newInstanceForNone();
         }

@@ -21,7 +21,7 @@ import static com.alibaba.jvm.sandbox.core.util.matcher.structure.ClassStructure
 
 /**
  * 沙箱类形变器
- *
+ *  TODO 用于动态修改正在运行的业务对象class字节码
  * @author luanjia@taobao.com
  */
 public class SandboxClassFileTransformer implements ClassFileTransformer {
@@ -126,6 +126,7 @@ public class SandboxClassFileTransformer implements ClassFileTransformer {
 
         // 开始进行类匹配
         try {
+            // TODO 调用EventEnhancer().toByteCodeArray通过ASM对字节码进行修改
             final byte[] toByteCodeArray = new EventEnhancer().toByteCodeArray(
                     loader,
                     srcByteCodeArray,

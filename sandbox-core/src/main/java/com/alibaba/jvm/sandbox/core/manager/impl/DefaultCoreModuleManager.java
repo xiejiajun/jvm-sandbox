@@ -33,6 +33,7 @@ import static org.apache.commons.lang3.reflect.FieldUtils.writeField;
 
 /**
  * 默认的模块管理实现
+ * TODO 模块管理器
  * Created by luanjia on 16/10/4.
  */
 public class DefaultCoreModuleManager implements CoreModuleManager {

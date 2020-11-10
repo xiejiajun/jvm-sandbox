@@ -7,7 +7,7 @@ import com.alibaba.jvm.sandbox.api.listener.ext.EventWatchCondition;
 
 /**
  * 事件观察者
- *
+ * TODO 用于观察BEFORE、RETURN等事件，然后调用EventListener进行处理(EventHandler只是它的一个装饰器，真正的观察者是这个)
  * @author luanjia@taobao.com
  */
 public interface ModuleEventWatcher {

@@ -166,6 +166,14 @@ public class DefaultModuleEventWatcher implements ModuleEventWatcher {
         return watch(toOrGroupMatcher(condition.getOrFilterArray()), listener, progress, eventType);
     }
 
+    /**
+     * TODO EventWatcher的实现
+     * @param matcher
+     * @param listener
+     * @param progress
+     * @param eventType
+     * @return
+     */
     // 这里是用matcher重制过后的watch
     private int watch(final Matcher matcher,
                       final EventListener listener,
@@ -180,6 +188,7 @@ public class DefaultModuleEventWatcher implements ModuleEventWatcher {
         coreModule.getSandboxClassFileTransformers().add(sandClassFileTransformer);
 
         //这里addTransformer后，接下来引起的类加载都会经过sandClassFileTransformer
+        // TODO 1. 先addTransformer
         inst.addTransformer(sandClassFileTransformer, true);
 
         // 查找需要渲染的类集合
@@ -197,6 +206,7 @@ public class DefaultModuleEventWatcher implements ModuleEventWatcher {
         try {
 
             // 应用JVM
+            // TODO 2. 再inst.retransformClasses 替换已加载的class
             reTransformClasses(watchId,waitingReTransformClasses, progress);
 
             // 计数
@@ -264,6 +274,7 @@ public class DefaultModuleEventWatcher implements ModuleEventWatcher {
         beginProgress(progress, waitingReTransformClasses.size());
         try {
             // 应用JVM
+            // TODO 去掉增强逻辑，换回原有的业务class字节码？
             reTransformClasses(watcherId, waitingReTransformClasses, progress);
         } finally {
             finishProgress(progress, cCnt, mCnt);

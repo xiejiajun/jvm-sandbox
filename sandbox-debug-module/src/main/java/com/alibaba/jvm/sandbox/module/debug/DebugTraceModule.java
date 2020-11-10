@@ -42,6 +42,7 @@ public class DebugTraceModule extends ParamSupported implements Module {
                 .onWatching()
                 .withCall()
                 .withProgress(new ProgressPrinter(printer))
+                // TODO onWatch会触发对字节码的修改
                 .onWatch(new AdviceListener() {
 
                     private String getTracingTitle(final Advice advice) {

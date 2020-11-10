@@ -98,6 +98,7 @@ public class EventEnhancer implements Enhancer {
         final ClassWriter cw = createClassWriter(targetClassLoader, cr);
         final int targetClassLoaderObjectID = ObjectIDs.instance.identity(targetClassLoader);
         cr.accept(
+                // TODO 调用EventWeaver通过ASM进行字节码增强
                 new EventWeaver(
                         ASM7, cw, namespace, listenerId,
                         targetClassLoaderObjectID,
@@ -107,6 +108,7 @@ public class EventEnhancer implements Enhancer {
                 ),
                 EXPAND_FRAMES
         );
+        // TODO 正常是不需要dump成class文件的， dump只是为了调试
         return dumpClassIfNecessary(cr.getClassName(), cw.toByteArray());
     }
 

@@ -2,7 +2,7 @@ package com.alibaba.jvm.sandbox.api.listener.ext;
 
 /**
  * 事件观察者
- *
+ * TODO 用于观察BEFORE、RETURN等事件，然后调用EventListener进行处理
  * @author luanjia@taobao.com
  * @since {@code sandbox-api:1.0.10}
  */
