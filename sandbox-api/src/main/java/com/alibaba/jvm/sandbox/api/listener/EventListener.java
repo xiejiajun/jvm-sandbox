@@ -4,7 +4,7 @@ import com.alibaba.jvm.sandbox.api.event.Event;
 
 /**
  * 事件监听器
- *
+ * TODO 在Module中通过实现这个接口进行BEFORE/RETURN/THROW等事件的自定义处理方式
  * @author luanjia@taobao.com
  */
 public interface EventListener {

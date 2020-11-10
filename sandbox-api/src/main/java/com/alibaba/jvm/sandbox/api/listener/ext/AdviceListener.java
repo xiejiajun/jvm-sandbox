@@ -8,7 +8,10 @@ import com.alibaba.jvm.sandbox.api.event.Event;
  * <p>
  * 将{@link Event}转换为更友好的{@link Advice}，当然，代价是一定的性能开销
  * </p>
- *
+ * TODO 这里用于Before、afterReturn、Throw响应逻辑的介入
+ *  用户自定义Module主要通过继承AdviceListener来实现自己的before、after和afterReturning等个性化逻辑
+ *  （也可以直接实现更高一级的抽象接口EventListener的onEvent方法自行处理BEFORE、RETURN、THROW等类型的事件）
+ *  这个类作为AdviceAdapterListener的成员变量被调用
  * @author luanjia@taobao.com
  * @since {@code sandbox-api:1.0.10}
  */

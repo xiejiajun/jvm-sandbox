@@ -194,6 +194,7 @@ public class JettyCoreServer implements CoreServer {
 
             // 初始化加载所有的模块
             try {
+                // TODO 加载所有模块（模块里面定义的EventListener实现用于处理BEFORE、RETURN和THROW等事件)
                 jvmSandbox.getCoreModuleManager().reset();
             } catch (Throwable cause) {
                 logger.warn("reset occur error when initializing.", cause);

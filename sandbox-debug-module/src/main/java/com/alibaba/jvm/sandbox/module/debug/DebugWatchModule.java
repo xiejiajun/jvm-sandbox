@@ -70,6 +70,7 @@ public class DebugWatchModule extends ParamSupported implements Module {
                         if (!triggers.contains(BEFORE)) {
                             return;
                         }
+                        // TODO 打印即将调用的类名、方法名、参数和调用该方法的对象
                         printlnByExpress(binding(advice));
                     }
 
@@ -78,6 +79,7 @@ public class DebugWatchModule extends ParamSupported implements Module {
                         if (!triggers.contains(RETURN)) {
                             return;
                         }
+                        // TODO 打印方法返回值
                         printlnByExpress(
                                 binding(advice)
                                         .bind("return", advice.getReturnObj())
@@ -89,6 +91,7 @@ public class DebugWatchModule extends ParamSupported implements Module {
                         if (!triggers.contains(THROWS)) {
                             return;
                         }
+                        // TODO 打印异常信息
                         printlnByExpress(
                                 binding(advice)
                                         .bind("throws", advice.getThrowable())

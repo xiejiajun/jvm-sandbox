@@ -65,6 +65,7 @@ public class DebugTraceModule extends ParamSupported implements Module {
 
                     @Override
                     protected void before(Advice advice) throws Throwable {
+                        // TODO before逻辑
                         final TTree tTree;
                         if (advice.isProcessTop()) {
                             advice.attach(tTree = new TTree(true, getTracingTitle(advice)));
@@ -76,6 +77,7 @@ public class DebugTraceModule extends ParamSupported implements Module {
 
                     @Override
                     protected void afterReturning(Advice advice) throws Throwable {
+                        // TODO afterReturn逻辑
                         final TTree tTree = advice.getProcessTop().attachment();
                         tTree.end();
                         finish(advice);
